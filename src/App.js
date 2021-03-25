@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Upload from './components/Upload'
 //import ImageShow from './components/ImageShow';
 import Dropdown from './components/Dropdown';
+import Route from './components/Route';
+import Header from './components/Header';
 
 import axios from 'axios';
 import regeneratorRuntime from "regenerator-runtime";
@@ -27,8 +29,6 @@ const options = [
 ];
 
 
-
-
 export default () => {
 
   const [showDropdown,setShowDropdown] = useState(true);
@@ -37,18 +37,20 @@ export default () => {
   // Code for loading our model
   // useEffect
 
-
-
   // How can I use an async statement here?
-
 
   return (
     <div className="custom-margin">
-      <Upload />
-      <Dropdown
-        selected={selected}
-        onSelectedChange={setSelected}
-        options={options}/>
+      <Header />
+      <Route path="/detector">
+        <Upload />
+        <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}/>
+      </Route>
+
+
     </div>
   );
 };
