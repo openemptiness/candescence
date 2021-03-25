@@ -43,7 +43,7 @@ export default () => {
 
 
   return (
-    <div>
+    <div className="custom-margin">
       <Upload />
       <Dropdown
         selected={selected}

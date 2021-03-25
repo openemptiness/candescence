@@ -45,9 +45,7 @@ class Upload extends React.Component {
   render() {
     return (
       <div>
-        <br/>
-        <br/>
-        <div className="field">
+        <div className="field my-left">
           <label className="label"> Select a File</label>
           <form onSubmit={this.handleUploadImage}>
               <div className="ui form ">

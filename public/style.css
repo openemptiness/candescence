@@ -3,6 +3,9 @@
   text-align: center;
 }
 
+.custom-margin {
+  margin:50px
+}
 
 .my-left {
   text-aligm: left;
