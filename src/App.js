@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
-function App() {
+import Upload from './components/Upload'
+//import ImageShow from './components/ImageShow';
+import Dropdown from './components/Dropdown';
+
+import axios from 'axios';
+import regeneratorRuntime from "regenerator-runtime";
+
+const options = [
+  {
+    "name": "Opaque",
+    "config path": "/home/data/refined/deep-microscopy/output/curriculum/output/config.py",
+    "model path": "/home/data/refined/deep-microscopy/output/curriculum/output/latest.pth"
+  },
+  {
+    "name": "White",
+    "config path":"",
+    "model path": ""
+  },
+  {
+    "name": "Hyphae",
+    "config path":"",
+    "model path": ""
+  }
+];
+
+
+
+
+export default () => {
+
+  const [showDropdown,setShowDropdown] = useState(true);
+  const [selected,setSelected] = useState(options[0]);
+
+  // Code for loading our model
+  // useEffect
+
+
+
+  // How can I use an async statement here?
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Upload />
+      <br/>
+      <button className="ui button"
+          onClick={() => setShowDropdown(!showDropdown)}> Toggle Dropdown
+  		</button>
+        {showDropdown ?
+          <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}/> : null }
     </div>
   );
-}
-
-export default App;
+};
